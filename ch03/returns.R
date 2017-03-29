@@ -5,7 +5,7 @@ load("ige-data.RData")
 computeReturns = function(prices, origin=6) {
     # origin controls the originating column index.
     # by default 6 will use the previous date adj close price
-    (prices[, 6] - lag(IGE[, origin], k=1)) / lag(IGE[, 6], k=1) * 100
+    (prices[, 6] - lag(prices[, origin], k=1)) / lag(prices[, 6], k=1) * 100
 }
 
 data = IGE['2002']
